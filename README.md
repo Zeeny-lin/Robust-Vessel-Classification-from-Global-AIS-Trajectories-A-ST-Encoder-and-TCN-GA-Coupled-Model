@@ -212,7 +212,7 @@ According to the manuscript, the complete framework achieves the best performanc
 | TCN | 82.54 | 83.62 | 85.98 | 89.87 |
 | TCN + Channel Attention | 82.14 | 87.55 | 88.60 | 90.13 |
 | TCN + Cross Attention | 83.44 | 88.36 | 88.86 | 89.88 |
-| TCN + Global Attention | 84.55 | 88.62 | 88.90 | **91.15** |
+| TCN + Global Attention | **84.55** | **88.62** | **88.90** | **91.15** |
 
 ### Robustness to Training Data Sparsity
 
