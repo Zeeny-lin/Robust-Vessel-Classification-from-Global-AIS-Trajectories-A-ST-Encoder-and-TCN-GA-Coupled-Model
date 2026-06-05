@@ -45,7 +45,7 @@ The model follows a **ST encoding + TCN-GA** architecture. The implementation is
 6. **Interpretability analysis**  
    Attention weights can be exported for identifying the trajectory segments that drive model decisions.
 
-## Paper Figures
+## Model Framework
 
 **Fig. 1. Overall TCN-GA vessel classification framework.**
 
