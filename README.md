@@ -1,4 +1,4 @@
-# Robust Vessel Classification from Global AIS Trajectories
+# Robust Vessel Classification from Global AIS Trajectories: A Spatiotemporal Encoder and TCN-GA Coupled Model
 
 **Author:** 
 
