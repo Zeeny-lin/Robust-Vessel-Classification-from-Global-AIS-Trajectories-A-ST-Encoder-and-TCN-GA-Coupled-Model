@@ -1,6 +1,6 @@
 # Robust Vessel Classification from Global AIS Trajectories
 
-This repository contains the main model code for the paper **"Robust Vessel Classification from Global AIS Trajectories: A Spatiotemporal Encoder and TCN-GA Coupled Model"**. The code is reorganized from the latest main multi-head self-attention implementation in `model_v2.py` and split into paper-aligned, reproducible modules.
+This repository contains the main model code for the paper **"Robust Vessel Classification from Global AIS Trajectories: A Spatiotemporal Encoder and TCN-GA Coupled Model"**. The code is reorganized from the latest main multi-head self-attention implementation in `model.py` and split into paper-aligned, reproducible modules.
 
 ## Research Objective
 
@@ -161,15 +161,70 @@ python run_experiment.py \
   --max-seq-len 300
 ```
 
-## Reported Results
+## Results
 
-According to the manuscript, the complete framework achieves the following results on the four-class vessel classification task:
+According to the manuscript, the complete framework achieves the best performance on the four-class vessel classification task.
 
-- Overall accuracy: **91.15%**
-- Improvement over baseline methods: **5.98% to 27.43%**
-- Accuracy with only 30% of the training data: **86.09%**
-- Best cross-hemisphere transfer accuracy: **75.81%**
-- Best cross-ocean average generalization accuracy: **72.20%**
+### Overall Model Comparison
+
+| Model Type | Model | Accuracy (%) | Precision (%) | Recall (%) | F1 (%) |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Feature Engineering | LightGBM | 84.63 | 84.82 | 84.63 | 84.70 |
+| Feature Engineering | Random Forest | 85.71 | 86.54 | 85.83 | 85.70 |
+| Feature Engineering | SVM | 82.91 | 83.45 | 82.86 | 82.99 |
+| Feature Engineering | BP-AdaBoost | 85.71 | 85.92 | 85.72 | 85.74 |
+| Image Encoding | ResNet | 73.48 | 72.70 | 73.17 | 72.70 |
+| Image Encoding | MVFFNet | 72.57 | 74.98 | 72.44 | 72.38 |
+| Image Encoding | DCN | 71.53 | 74.34 | 71.43 | 71.44 |
+| Image Encoding | EfficientNet | 73.30 | 71.89 | 72.56 | 71.89 |
+| Sequence Modeling | STGNN | 83.99 | 84.22 | 84.24 | 84.02 |
+| Sequence Modeling | TrAISformer | 86.01 | 86.66 | 86.27 | 86.46 |
+| Sequence Modeling | TimeMachine | 78.26 | 79.27 | 78.89 | 79.08 |
+| Proposed | TCN-GA | **91.15** | **91.34** | **91.16** | **91.20** |
+
+### Preprocessing Ablation
+
+| Data Setting | Accuracy (%) | Precision (%) | Recall (%) | F1 (%) | Delta Accuracy |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Original Data | 78.57 | 80.51 | 78.57 | 78.88 | - |
+| + Segmentation | 86.22 | 86.63 | 86.22 | 86.61 | +7.65 |
+| + Cleaning | 86.48 | 88.75 | 86.48 | 86.81 | +0.26 |
+| + Interpolation | 87.50 | 90.11 | 87.50 | 87.96 | +1.02 |
+| + Splitting | 87.60 | 88.55 | 87.90 | 88.22 | +0.10 |
+| + Smoothing | 88.01 | 89.96 | 88.01 | 88.33 | +0.41 |
+| + Compression | 88.62 | 88.85 | 88.62 | 88.67 | +0.61 |
+
+### Component Ablation
+
+| Model Variant | Without Encoders | Without Spatial Encoder | Without Temporal Encoder | Full Spatiotemporal Encoder |
+| --- | ---: | ---: | ---: | ---: |
+| Channel Attention | 69.90 | 82.40 | 78.06 | 82.91 |
+| Cross Attention | 69.60 | 82.95 | 83.54 | 84.97 |
+| Global Attention | 78.66 | 85.20 | 84.95 | 86.73 |
+| TCN | 82.54 | 83.62 | 85.98 | 89.87 |
+| TCN + Channel Attention | 82.14 | 87.55 | 88.60 | 90.13 |
+| TCN + Cross Attention | 83.44 | 88.36 | 88.86 | 89.88 |
+| TCN + Global Attention | 84.55 | 88.62 | 88.90 | **91.15** |
+
+### Robustness to Training Data Sparsity
+
+| Training Ratio | Accuracy (%) | Precision (%) | Recall (%) | F1 (%) |
+| --- | ---: | ---: | ---: | ---: |
+| 100% | 91.15 | 91.34 | 91.08 | 91.20 |
+| 75% | 90.12 | 90.72 | 90.04 | 90.26 |
+| 60% | 87.59 | 88.23 | 87.51 | 87.73 |
+| 30% | 86.09 | 86.60 | 86.01 | 86.24 |
+| 20% | 78.10 | 79.57 | 78.02 | 78.46 |
+| 10% | 78.36 | 79.73 | 78.28 | 78.80 |
+
+### Spatial Generalization
+
+| Scenario | Accuracy (%) | Precision (%) | Recall (%) | F1 (%) |
+| --- | ---: | ---: | ---: | ---: |
+| Eastern Hemisphere -> Western Hemisphere | 75.81 | 79.32 | 75.82 | 76.62 |
+| Western Hemisphere -> Eastern Hemisphere | 62.64 | 64.83 | 62.66 | 61.33 |
+| Cross-hemisphere average | 69.23 | - | - | - |
+| Best cross-ocean average | 72.20 | - | - | - |
 
 The ablation study indicates that preprocessing, spatiotemporal encoding, TCN, and GA/attention modules all contribute to final performance.
 
