@@ -236,6 +236,8 @@ According to the manuscript, the complete framework achieves the best performanc
 
 The ablation study indicates that preprocessing, spatiotemporal encoding, TCN, and GA/attention modules all contribute to final performance.
 
-## Notes
+### Interpretability Analysis
+**Fig. 5. The global attention weights reflect discriminative behaviour characteristics of trajectories corresponding vessel type.**
 
-This repository only keeps the main model and reproducible experiment code. Raw AIS data, trained weights, manuscript files, and intermediate experiment outputs are not included. Large data files and `.pth` checkpoints are excluded through `.gitignore` to avoid accidental upload to GitHub.
+![The global attention weights reflect discriminative behaviour characteristics of trajectories corresponding vessel type](https://github.com/Zeeny-lin/Robust-Vessel-Classification-from-Global-AIS-Trajectories-A-ST-Encoder-and-TCN-GA-Coupled-Model/blob/main/docs/figures/Fig%205.png)
+
