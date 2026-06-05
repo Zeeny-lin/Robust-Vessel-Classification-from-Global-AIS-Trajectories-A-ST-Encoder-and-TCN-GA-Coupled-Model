@@ -6,7 +6,7 @@ JiaLiang Gao, ADC(Fujian), Fuzhou University, Fuzhou, 350108, China
 Zhenyi Lin, ADC(Fujian), Fuzhou University, Fuzhou, 350108, China  
 
 ##
-This repository contains the main model code for the paper **"Robust Vessel Classification from Global AIS Trajectories: A Spatiotemporal Encoder and TCN-GA Coupled Model"**. The code is reorganized from the latest main multi-head self-attention implementation in `model.py` and split into paper-aligned, reproducible modules.
+This repository contains the main model code for the paper **"Robust Vessel Classification from Global AIS Trajectories: A Spatiotemporal Encoder and TCN-GA Coupled Model"**. 
 
 ## Research Objective
 
@@ -21,9 +21,7 @@ The study addresses three major challenges: unstable global AIS data quality, co
 
 ## Method Overview
 
-The model follows a **Space2Vec + temporal encoding + separate TCN + multi-head self-attention + cross-attention** architecture. This corresponds to the paper's spatiotemporal encoder and TCN-GA coupled framework.
-
-The implementation is organized into six methodological steps:
+The model follows a **ST encoding + TCN-GA** architecture. The implementation is organized into six methodological steps:
 
 1. **AIS data cleaning and feature standardization**  
    Latitude, longitude, speed over ground, course over ground, time interval, and daily-cycle features are normalized, interpolated, truncated, and clipped.
@@ -31,10 +29,10 @@ The implementation is organized into six methodological steps:
 2. **Spatiotemporal semantic encoding**  
    Space2Vec-style multi-scale sinusoidal encoding represents geographic locations, while `sog/cog/delta_h/day_frac` are projected into temporal and motion embeddings.
 
-3. **Separate TCN sequence modeling**  
-   Spatial and temporal feature branches are processed by independent dilated TCNs to capture long-range dependencies from local maneuvers to cross-day navigation rhythms.
+3. **TCN sequence modeling**  
+   Independent dilated TCNs process spatial and temporal feature branches to capture long-range dependencies from local maneuvers to cross-day navigation rhythms.
 
-4. **Multi-head self-attention and cross-attention fusion**  
+4. **Global-Attention fusion**  
    Spatial and temporal branches are refined by multi-head self-attention, then fused through cross-attention to emphasize behavior-critical trajectory segments.
 
 5. **Ship-level ensemble prediction**  
@@ -53,7 +51,7 @@ The implementation is organized into six methodological steps:
 
 ![Six-stage AIS trajectory preprocessing workflow](https://github.com/Zeeny-lin/Robust-Vessel-Classification-from-Global-AIS-Trajectories-A-ST-Encoder-and-TCN-GA-Coupled-Model/blob/main/docs/figures/Fig%202.png)
 
-**Fig. 3. TCN-Global Attention module with multi-head self-attention and cross-attention.**
+**Fig. 3. TCN-Global Attention module.**
 
 ![TCN-Global Attention module](https://github.com/Zeeny-lin/Robust-Vessel-Classification-from-Global-AIS-Trajectories-A-ST-Encoder-and-TCN-GA-Coupled-Model/blob/main/docs/figures/Fig%203.png)
 
