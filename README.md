@@ -43,7 +43,7 @@ The model follows a **ST encoding + TCN-GA** architecture. The implementation is
    The model first predicts trajectory segments, then aggregates segment predictions into vessel-level results using confidence-weighted voting.
 
 6. **Interpretability analysis**  
-   Spatial, temporal, cross, and combined attention weights can be exported for identifying the trajectory segments that drive model decisions.
+   Attention weights can be exported for identifying the trajectory segments that drive model decisions.
 
 ## Paper Figures
 
