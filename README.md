@@ -19,7 +19,7 @@ The task is global-scale vessel type classification from AIS trajectories for fo
   
 **Appen Fig. C.1.Trajectory Heatmap.**
 
-![Trajectory Heatmap](https://github.com/Zeeny-lin/Robust-Vessel-Classification-from-Global-AIS-Trajectories-A-ST-Encoder-and-TCN-GA-Coupled-Model/blob/main/docs/figures/Fig%206.png)
+![Trajectory Heatmap](https://github.com/Zeeny-lin/Robust-Vessel-Classification-from-Global-AIS-Trajectories-A-ST-Encoder-and-TCN-GA-Coupled-Model/blob/main/docs/figures/Fig%204.png)
 
 The study addresses three major challenges: unstable global AIS data quality, complex vessel behavior patterns with long-range sequence dependencies, and the need for robust cross-region and cross-ocean generalization.
 
