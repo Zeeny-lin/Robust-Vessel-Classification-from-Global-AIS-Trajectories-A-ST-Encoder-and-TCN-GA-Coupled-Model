@@ -37,6 +37,20 @@ The implementation is organized into six methodological steps:
 6. **Interpretability analysis**  
    Spatial, temporal, cross, and combined attention weights can be exported for identifying the trajectory segments that drive model decisions.
 
+## Paper Figures
+
+**Fig. 1. Overall Space2Vec-TCN-GA vessel classification framework.**
+
+![Overall Space2Vec-TCN-GA vessel classification framework](docs/figures/fig1.png)
+
+**Fig. 2. Six-stage AIS trajectory preprocessing workflow.**
+
+![Six-stage AIS trajectory preprocessing workflow](docs/figures/fig2.png)
+
+**Fig. 3. TCN-Global Attention module with multi-head self-attention and cross-attention.**
+
+![TCN-Global Attention module](docs/figures/fig3.png)
+
 ## Repository Structure
 
 ```text
@@ -59,6 +73,10 @@ vessel-classification-tcn-mha/
     evaluate.py            # Segment prediction and ship-level voting evaluation
     attention_analysis.py  # Attention weight export and visualization
   docs/
+    figures/
+      fig1.png             # Overall method framework
+      fig2.png             # AIS preprocessing workflow
+      fig3.png             # TCN-GA module details
     method_steps.md        # Paper-style method step description
 ```
 
