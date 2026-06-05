@@ -1,5 +1,9 @@
 # Robust Vessel Classification from Global AIS Trajectories
 
+**Author:** 
+JiaLiang Gao ADC(Fujian), Fuzhou University, Fuzhou, 350108, China  
+Zhenyi Lin ADC(Fujian), Fuzhou University, Fuzhou, 350108, China  
+
 This repository contains the main model code for the paper **"Robust Vessel Classification from Global AIS Trajectories: A Spatiotemporal Encoder and TCN-GA Coupled Model"**. The code is reorganized from the latest main multi-head self-attention implementation in `model.py` and split into paper-aligned, reproducible modules.
 
 ## Research Objective
