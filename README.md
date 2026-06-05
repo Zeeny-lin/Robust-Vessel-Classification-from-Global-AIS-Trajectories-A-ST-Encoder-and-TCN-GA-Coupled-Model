@@ -2,7 +2,7 @@
 
 **Author:** 
 
-JiaLiang Gao, ADC (Fujian), Fuzhou University, Fuzhou, 350108, China  
+Jialiang Gao, ADC (Fujian), Fuzhou University, Fuzhou, 350108, China  
 Zhenyi Lin, ADC (Fujian), Fuzhou University, Fuzhou, 350108, China  
 
 ##
