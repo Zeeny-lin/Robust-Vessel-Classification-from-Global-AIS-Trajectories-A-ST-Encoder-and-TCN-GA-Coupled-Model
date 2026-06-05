@@ -43,7 +43,7 @@ The model follows a **ST encoding + TCN-GA** architecture. The implementation is
 
 ## Paper Figures
 
-**Fig. 1. Overall Space2Vec-TCN-GA vessel classification framework.**
+**Fig. 1. Overall TCN-GA vessel classification framework.**
 
 ![Overall Space2Vec-TCN-GA vessel classification framework](https://github.com/Zeeny-lin/Robust-Vessel-Classification-from-Global-AIS-Trajectories-A-ST-Encoder-and-TCN-GA-Coupled-Model/blob/main/docs/figures/Fig%201.png)
 
