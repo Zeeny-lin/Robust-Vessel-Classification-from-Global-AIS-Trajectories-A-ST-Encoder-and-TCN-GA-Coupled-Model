@@ -188,7 +188,7 @@ According to the manuscript, the complete framework achieves the best performanc
 | Sequence Modeling | STGNN | 83.99 | 84.22 | 84.24 | 84.02 |
 | Sequence Modeling | TrAISformer | 86.01 | 86.66 | 86.27 | 86.46 |
 | Sequence Modeling | TimeMachine | 78.26 | 79.27 | 78.89 | 79.08 |
-| Proposed | TCN-GA | **91.15** | **91.34** | **91.16** | **91.20** |
+| Ours | TCN-GA | **91.15** | **91.34** | **91.16** | **91.20** |
 
 ### Preprocessing Ablation
 
